@@ -209,7 +209,7 @@ microserive.guide exec -e API_KEY=<KEY> -e DOMAIN=<DOMAIN> microservice/freshdes
 
 ##### Get Contact List
 ```coffee
->>> mailgun listContact
+>>> freshdesk listContact
 ["LIST_OF_CONTACTS"]
 ```
 
