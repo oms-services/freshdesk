@@ -1,0 +1,163 @@
+omg: 1
+info:
+  version: 1.0.0
+  title: Freshdesk
+  description: Freshdesk as a microservice
+  license:
+    name: MIT
+    url: https://opensource.org/licenses/MIT
+  contact:
+    name: Asyncy
+    url: https://asyncy.com
+    email: hello@asyncy.com
+lifecycle:
+  startup:
+    command: ["python","/app/app.py"]
+actions:
+  getTicket:
+    help: Get ticket by id
+    arguments:
+      id:
+        type: int
+        in: requestBody
+        required: true
+    http:
+      path: /ticket/get
+      method: post
+      port: 8000 
+      contentType: application/json 
+    output:
+      type: map
+  createTicket:
+    help: Create new ticket
+    arguments:
+      description:
+        type: string
+        in: requestBody
+        required: true
+      subject:
+        type: string
+        in: requestBody
+        required: true
+      email:
+        type: string
+        in: requestBody
+        required: true
+      priority:
+        type: int
+        in: requestBody
+        required: false
+      status:
+        type: int
+        in: requestBody
+        required: false
+      cc_emails:
+        type: list
+        in: requestBody
+        required: false
+    http:
+      path: /ticket/create
+      method: post
+      port: 8000 
+      contentType: application/json 
+    output:
+      type: map
+  deleteTicket:
+    help: Delete ticket by id
+    arguments:
+      id:
+        type: int
+        in: requestBody
+        required: true
+    http:
+      path: /ticket/delete
+      method: post
+      port: 8000 
+      contentType: application/json 
+    output:
+      type: map
+  listTicket:
+    help: Get all tickets
+    http:
+      path: /ticket/list
+      method: post
+      port: 8000 
+      contentType: application/json 
+    output:
+      type: list
+  getContact:
+    help: Get contact by id
+    arguments:
+      id:
+        type: int
+        in: requestBody
+        required: true
+    http:
+      path: /contact/get
+      method: post
+      port: 8000 
+      contentType: application/json 
+    output:
+      type: map
+  createContact:
+    help: Create new contact
+    arguments:
+      name:
+        type: string
+        in: requestBody
+        required: true
+      email:
+        type: string
+        in: requestBody
+        required: false
+      mobile:
+        type: int
+        in: requestBody
+        required: false
+      phone:
+        type: string
+        in: requestBody
+        required: false
+      twitter_id:
+        type: string
+        in: requestBody
+        required: false
+      unique_external_id:
+        type: list
+        in: requestBody
+        required: false
+    http:
+      path: /contact/create
+      method: post
+      port: 8000 
+      contentType: application/json 
+    output:
+      type: map
+  deleteContact:
+    help: Delete contact by id
+    arguments:
+      id:
+        type: int
+        in: requestBody
+        required: true
+    http:
+      path: /contact/delete
+      method: post
+      port: 8000 
+      contentType: application/json 
+    output:
+      type: map
+  listContact:
+    help: Get all contacts
+    http:
+      path: /contact/list
+      method: post
+      port: 8000 
+      contentType: application/json 
+    output:
+      type: list
+environment:
+  API_KEY:
+    type: string
+  DOMAIN:
+    type: string
