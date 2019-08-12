@@ -50,7 +50,7 @@ microserive.guide exec -e API_KEY=<KEY> -e DOMAIN=<DOMAIN> microservice/freshdes
 
 ##### Create Ticket
 ```coffee
->>> mailgun createTicket description:'<DESCRIPTION>' subject:'<SUBJECT>' email:'<EMAIL>' priority:'<PRIORITY>' status:'<STATUS>' cc_emails='<CC_EMAILS>'
+>>> freshdesk createTicket description:'<DESCRIPTION>' subject:'<SUBJECT>' email:'<EMAIL>' priority:'<PRIORITY>' status:'<STATUS>' cc_emails='<CC_EMAILS>'
 {
   "cc_emails": [],
   "fwd_emails": [],
@@ -86,7 +86,7 @@ microserive.guide exec -e API_KEY=<KEY> -e DOMAIN=<DOMAIN> microservice/freshdes
 
 ##### Get Ticket
 ```coffee
->>> mailgun getTicket id:<ID>
+>>> freshdesk getTicket id:<ID>
 {
   "cc_emails": [],
   "fwd_emails": [],
@@ -124,7 +124,7 @@ microserive.guide exec -e API_KEY=<KEY> -e DOMAIN=<DOMAIN> microservice/freshdes
 
 ##### Delete Ticket
 ```coffee
->>> mailgun deleteTicket id:<ID>
+>>> freshdesk deleteTicket id:<ID>
 {
   "success": true,
   "message": "Ticket deleted successfully."
@@ -133,13 +133,13 @@ microserive.guide exec -e API_KEY=<KEY> -e DOMAIN=<DOMAIN> microservice/freshdes
 
 ##### Get Ticket List
 ```coffee
->>> mailgun listTicket
+>>> freshdesk listTicket
 ["LIST_OF_TICKETS"]
 ```
 
 ##### Create Contact
 ```coffee
->>> mailgun createContact name:'<NAME>' email:'<EMAIL>' mobile:'<MOBILE>' phone:'<PHONE>' twitter_id:'<TWITTER_ID>' unique_external_id:'<UNIQUE_EXTERNAL_ID>'
+>>> freshdesk createContact name:'<NAME>' email:'<EMAIL>' mobile:'<MOBILE>' phone:'<PHONE>' twitter_id:'<TWITTER_ID>' unique_external_id:'<UNIQUE_EXTERNAL_ID>'
 {
   "active": false,
   "address": null,
@@ -170,7 +170,7 @@ microserive.guide exec -e API_KEY=<KEY> -e DOMAIN=<DOMAIN> microservice/freshdes
 
 ##### Get Contact
 ```coffee
->>> mailgun getContact id:<ID>
+>>> freshdesk getContact id:<ID>
 {
   "active": false,
   "address": null,
@@ -200,7 +200,7 @@ microserive.guide exec -e API_KEY=<KEY> -e DOMAIN=<DOMAIN> microservice/freshdes
 
 ##### Delete Contact
 ```coffee
->>> mailgun deleteContact id:<ID>
+>>> freshdesk deleteContact id:<ID>
 {
   "success": true,
   "message": "Contact deleted successfully."
