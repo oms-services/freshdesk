@@ -14,7 +14,7 @@ microserive.guide exec -e API_KEY=<KEY> -e DOMAIN=<DOMAIN> microservice/freshdes
   email:'mock@email.com'
 
 {
-  "cc_emails": [],
+  "ccEmails": [],
   "fwd_emails": [],
   "reply_cc_emails": [],
   "ticket_cc_emails": [],
@@ -50,9 +50,9 @@ microserive.guide exec -e API_KEY=<KEY> -e DOMAIN=<DOMAIN> microservice/freshdes
 
 ##### Create Ticket
 ```coffee
->>> freshdesk createTicket description:'<DESCRIPTION>' subject:'<SUBJECT>' email:'<EMAIL>' priority:'<PRIORITY>' status:'<STATUS>' cc_emails='<CC_EMAILS>'
+>>> freshdesk createTicket description:'<DESCRIPTION>' subject:'<SUBJECT>' email:'<EMAIL>' priority:'<PRIORITY>' status:'<STATUS>' ccEmails='<CC_EMAILS>'
 {
-  "cc_emails": [],
+  "ccEmails": [],
   "fwd_emails": [],
   "reply_cc_emails": [],
   "ticket_cc_emails": [],
@@ -88,7 +88,7 @@ microserive.guide exec -e API_KEY=<KEY> -e DOMAIN=<DOMAIN> microservice/freshdes
 ```coffee
 >>> freshdesk getTicket id:<ID>
 {
-  "cc_emails": [],
+  "ccEmails": [],
   "fwd_emails": [],
   "reply_cc_emails": [],
   "ticket_cc_emails": [],
@@ -139,7 +139,7 @@ microserive.guide exec -e API_KEY=<KEY> -e DOMAIN=<DOMAIN> microservice/freshdes
 
 ##### Create Contact
 ```coffee
->>> freshdesk createContact name:'<NAME>' email:'<EMAIL>' mobile:'<MOBILE>' phone:'<PHONE>' twitter_id:'<TWITTER_ID>' unique_external_id:'<UNIQUE_EXTERNAL_ID>'
+>>> freshdesk createContact name:'<NAME>' email:'<EMAIL>' mobile:'<MOBILE>' phone:'<PHONE>' twitterId:'<TWITTER_ID>' uniqueExternalId:'<UNIQUE_EXTERNAL_ID>'
 {
   "active": false,
   "address": null,
@@ -226,7 +226,7 @@ $ omg run getTicket -a id=<ID> -e API_KEY=<API_KEY> -e DOMAIN=<DOMAIN>
 
 ##### Create Ticket
 ```shell
-$ omg run createTicket -a description=<DESCRIPTION> -a subject=<SUBJECT> -a email=<EMAIL> -a priority=<PRIORITY> -a status=<STATUS> -a cc_emails=<CC_EMAILS> -e API_KEY=<API_KEY> -e DOMAIN=<DOMAIN>
+$ omg run createTicket -a description=<DESCRIPTION> -a subject=<SUBJECT> -a email=<EMAIL> -a priority=<PRIORITY> -a status=<STATUS> -a ccEmails=<CC_EMAILS> -e API_KEY=<API_KEY> -e DOMAIN=<DOMAIN>
 ```
 
 ##### Delete Ticket
@@ -246,7 +246,7 @@ $ omg run getContact -a id=<ID> -e API_KEY=<API_KEY> -e DOMAIN=<DOMAIN>
 
 ##### Create Contact
 ```shell
-$ omg run createContact -a name=<NAME> -a email=<EMAIL> -a mobile=<MOBILE> -a phone=<PHONE> -a twitter_id=<TWITTER_ID> -a unique_external_id=<UNIQUE_EXTERNAL_ID> -e API_KEY=<API_KEY> -e DOMAIN=<DOMAIN>
+$ omg run createContact -a name=<NAME> -a email=<EMAIL> -a mobile=<MOBILE> -a phone=<PHONE> -a twitterId=<TWITTER_ID> -a uniqueExternalId=<UNIQUE_EXTERNAL_ID> -e API_KEY=<API_KEY> -e DOMAIN=<DOMAIN>
 ```
 
 ##### Delete Contact

@@ -51,7 +51,7 @@ actions:
         type: int
         in: requestBody
         required: false
-      cc_emails:
+      ccEmails:
         type: list
         in: requestBody
         required: false
@@ -118,11 +118,11 @@ actions:
         type: string
         in: requestBody
         required: false
-      twitter_id:
+      twitterId:
         type: string
         in: requestBody
         required: false
-      unique_external_id:
+      uniqueExternalId:
         type: list
         in: requestBody
         required: false

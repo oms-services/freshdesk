@@ -25,6 +25,8 @@ def getTicket():
 @app.route('/ticket/create', methods=['POST'])
 def createTicket():
     data = request.json
+    if data.get("ccEmails") is not None or data.get("ccEmails") != "" :
+        data["cc_mails"] = data.pop("ccEmails")
     if data.get("priority") is None or data.get("priority") == "" :
         data["priority"] = 1
     if data.get("status") is None or data.get("status") == "" :
@@ -81,6 +83,10 @@ def getContact():
 @app.route('/contact/create', methods=['POST'])
 def createContact():
     data = request.json
+    if data.get("twitterId") is not None or data.get("twitterId") != "" :
+        data["twitter_id"] = data.pop("twitterId")
+    if data.get("uniqueExternalId") is not None or data.get("uniqueExternalId") != "" :
+        data["unique_external_id"] = data.pop("uniqueExternalId")
     res = requests.post(
         "https://"+DOMAIN+".freshdesk.com/api/v2/contacts",
         json=data,

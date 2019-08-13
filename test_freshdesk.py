@@ -8,7 +8,7 @@ def test_createTicket_request(client):
         "description": "Details about the issue...",
         "subject": "Support Needed...",
         "email": "tom@outerspace.com",
-        "cc_emails": [
+        "ccEmails": [
             "ram@freshdesk.com",
             "diana@freshdesk.com"
         ]
