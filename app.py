@@ -36,7 +36,6 @@ def createTicket():
         json=data,
         headers=headers
     )
-    print("res ", res)
     return end(res.json()),res.status_code
 
 @app.route('/ticket/delete', methods=['POST'])
