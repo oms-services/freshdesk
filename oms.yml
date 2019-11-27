@@ -1,18 +1,20 @@
-omg: 1
+oms: 1
 info:
   version: 1.0.0
   title: Freshdesk
   description: Freshdesk as a microservice
   license:
     name: MIT
-    url: https://opensource.org/licenses/MIT
+    url: 'https://opensource.org/licenses/MIT'
   contact:
-    name: Asyncy
-    url: https://asyncy.com
-    email: hello@asyncy.com
+    name: Open Microservices
+    url: 'https://openmicroservices.org'
+    email: core@openmicroservices.org
 lifecycle:
   startup:
-    command: ["python","/app/app.py"]
+    command:
+      - python
+      - /app/app.py
 actions:
   getTicket:
     help: Get ticket by id
@@ -24,8 +26,8 @@ actions:
     http:
       path: /ticket/get
       method: post
-      port: 8000 
-      contentType: application/json 
+      port: 8000
+      contentType: application/json
     output:
       type: map
   createTicket:
@@ -58,8 +60,8 @@ actions:
     http:
       path: /ticket/create
       method: post
-      port: 8000 
-      contentType: application/json 
+      port: 8000
+      contentType: application/json
     output:
       type: map
   deleteTicket:
@@ -72,8 +74,8 @@ actions:
     http:
       path: /ticket/delete
       method: post
-      port: 8000 
-      contentType: application/json 
+      port: 8000
+      contentType: application/json
     output:
       type: map
   listTicket:
@@ -81,8 +83,8 @@ actions:
     http:
       path: /ticket/list
       method: post
-      port: 8000 
-      contentType: application/json 
+      port: 8000
+      contentType: application/json
     output:
       type: list
   getContact:
@@ -95,8 +97,8 @@ actions:
     http:
       path: /contact/get
       method: post
-      port: 8000 
-      contentType: application/json 
+      port: 8000
+      contentType: application/json
     output:
       type: map
   createContact:
@@ -129,8 +131,8 @@ actions:
     http:
       path: /contact/create
       method: post
-      port: 8000 
-      contentType: application/json 
+      port: 8000
+      contentType: application/json
     output:
       type: map
   deleteContact:
@@ -143,8 +145,8 @@ actions:
     http:
       path: /contact/delete
       method: post
-      port: 8000 
-      contentType: application/json 
+      port: 8000
+      contentType: application/json
     output:
       type: map
   listContact:
@@ -152,8 +154,8 @@ actions:
     http:
       path: /contact/list
       method: post
-      port: 8000 
-      contentType: application/json 
+      port: 8000
+      contentType: application/json
     output:
       type: list
 environment:
