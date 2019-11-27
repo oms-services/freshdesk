@@ -1,266 +1,227 @@
-# _Freshdesk_ OMG Microservice
+# _Freshdesk_ Open Microservice
 
-[![Open Microservice Guide](https://img.shields.io/badge/OMG%20Enabled-👍-green.svg?)](https://microservice.guide)
-[![Build Status](https://travis-ci.com/omg-services/freshdesk.svg?branch=master)](https://travis-ci.com/omg-services/freshdesk)
-[![codecov](https://codecov.io/gh/omg-services/freshdesk/branch/master/graph/badge.svg)](https://codecov.io/gh/omg-services/freshdesk)
+> Freshdesk as a microservice
 
-This is omg services for 'Freshdesk'.
-An online cloud-based customer service software providing helpdesk support with all smart automations to get things done faster. 
+[![Open Microservice Specification Version](https://img.shields.io/badge/Open%20Microservice-1.0-477bf3.svg)](https://openmicroservices.org)
+[![Open Microservices Spectrum Chat](https://withspectrum.github.io/badge/badge.svg)](https://spectrum.chat/open-microservices)
+[![Open Microservices Code of Conduct](https://img.shields.io/badge/Contributor%20Covenant-v1.4%20adopted-ff69b4.svg)](https://github.com/oms-services/.github/blob/master/CODE_OF_CONDUCT.md)
+[![Open Microservices Commitzen](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](http://makeapullrequest.com)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
-```coffee
-microserive.guide exec -e API_KEY=<KEY> -e DOMAIN=<DOMAIN> microservice/freshdesk createTicket \
-  description:'Test ticket' \
-  subject:'Mock Ticket' \
-  email:'mock@email.com'
+## Introduction
 
-{
-  "ccEmails": [],
-  "fwd_emails": [],
-  "reply_cc_emails": [],
-  "ticket_cc_emails": [],
-  "fr_escalated": false,
-  "spam": false,
-  "email_config_id": null,
-  "group_id": null,
-  "priority": 1,
-  "requester_id": 48008271709,
-  "responder_id": null,
-  "source": 2,
-  "company_id": null,
-  "status": 2,
-  "subject": "Mock Ticket",
-  "to_emails": null,
-  "product_id": null,
-  "id": 41,
-  "type": null,
-  "due_by": "2019-08-15T07:37:13Z",
-  "fr_due_by": "2019-08-13T07:37:13Z",
-  "is_escalated": false,
-  "description": "<div>Test ticket</div>",
-  "description_text": "Test ticket",
-  "custom_fields": {},
-  "created_at": "2019-08-12T07:37:13Z",
-  "updated_at": "2019-08-12T07:37:13Z",
-  "tags": [],
-  "attachments": []
-}
+This project is an example implementation of the [Open Microservice Specification](https://openmicroservices.org), a standard
+originally created at [Storyscript](https://storyscript.io) for building highly-portable "microservices" that expose the
+events, actions, and APIs inside containerized software.
+
+## Getting Started
+
+The `oms` command-line interface allows you to interact with Open Microservices. If you're interested in creating an Open
+Microservice the CLI also helps validate, test, and debug your `oms.yml` implementation!
+
+See the [oms-cli](https://github.com/microservices/oms) project to learn more!
+
+### Installation
+
+```
+npm install -g @microservices/oms
 ```
 
-## Direct usage in [Storyscript](https://storyscript.io/):
+## Usage
 
-##### Create Ticket
-```coffee
->>> freshdesk createTicket description:'<DESCRIPTION>' subject:'<SUBJECT>' email:'<EMAIL>' priority:'<PRIORITY>' status:'<STATUS>' ccEmails='<CC_EMAILS>'
-{
-  "ccEmails": [],
-  "fwd_emails": [],
-  "reply_cc_emails": [],
-  "ticket_cc_emails": [],
-  "fr_escalated": false,
-  "spam": false,
-  "email_config_id": null,
-  "group_id": null,
-  "priority": 1,
-  "requester_id": 48008271709,
-  "responder_id": null,
-  "source": 2,
-  "company_id": null,
-  "status": 2,
-  "subject": "Mock Ticket",
-  "to_emails": null,
-  "product_id": null,
-  "id": 41,
-  "type": null,
-  "due_by": "2019-08-15T07:37:13Z",
-  "fr_due_by": "2019-08-13T07:37:13Z",
-  "is_escalated": false,
-  "description": "<div>Test ticket</div>",
-  "description_text": "Test ticket",
-  "custom_fields": {},
-  "created_at": "2019-08-12T07:37:13Z",
-  "updated_at": "2019-08-12T07:37:13Z",
-  "tags": [],
-  "attachments": []
-}
-```
+### Open Microservices CLI Usage
 
-##### Get Ticket
-```coffee
->>> freshdesk getTicket id:<ID>
-{
-  "ccEmails": [],
-  "fwd_emails": [],
-  "reply_cc_emails": [],
-  "ticket_cc_emails": [],
-  "fr_escalated": false,
-  "spam": false,
-  "email_config_id": null,
-  "group_id": null,
-  "priority": 1,
-  "requester_id": 48008271709,
-  "responder_id": null,
-  "source": 2,
-  "company_id": null,
-  "status": 2,
-  "subject": "Mock Ticket",
-  "association_type": null,
-  "to_emails": null,
-  "product_id": null,
-  "id": 41,
-  "type": null,
-  "due_by": "2019-08-15T07:37:13Z",
-  "fr_due_by": "2019-08-13T07:37:13Z",
-  "is_escalated": false,
-  "description": "<div>Test ticket</div>",
-  "description_text": "Test ticket",
-  "custom_fields": {},
-  "created_at": "2019-08-12T07:37:13Z",
-  "updated_at": "2019-08-12T07:37:13Z",
-  "tags": [],
-  "attachments": [],
-  "source_additional_info": null
-}
-```
+Once you have the [oms-cli](https://github.com/microservices/oms) installed, you can run any of the following commands from
+within this project's root directory:
 
-##### Delete Ticket
-```coffee
->>> freshdesk deleteTicket id:<ID>
-{
-  "success": true,
-  "message": "Ticket deleted successfully."
-}
-```
+#### Actions
 
-##### Get Ticket List
-```coffee
->>> freshdesk listTicket
-["LIST_OF_TICKETS"]
-```
+##### getTicket
 
-##### Create Contact
-```coffee
->>> freshdesk createContact name:'<NAME>' email:'<EMAIL>' mobile:'<MOBILE>' phone:'<PHONE>' twitterId:'<TWITTER_ID>' uniqueExternalId:'<UNIQUE_EXTERNAL_ID>'
-{
-  "active": false,
-  "address": null,
-  "company_id": null,
-  "view_all_tickets": null,
-  "deleted": false,
-  "description": null,
-  "email": "mock@email.com",
-  "id": 48008659871,
-  "job_title": null,
-  "language": "en",
-  "mobile": null,
-  "name": "Mock name",
-  "phone": null,
-  "time_zone": "Chennai",
-  "twitter_id": null,
-  "custom_fields": {},
-  "tags": [],
-  "other_emails": [],
-  "facebook_id": null,
-  "created_at": "2019-08-12T07:41:09Z",
-  "updated_at": "2019-08-12T07:41:09Z",
-  "other_companies": [],
-  "unique_external_id": null,
-  "avatar": null
-}
-```
+> Get ticket by id
 
-##### Get Contact
-```coffee
->>> freshdesk getContact id:<ID>
-{
-  "active": false,
-  "address": null,
-  "company_id": null,
-  "view_all_tickets": null,
-  "description": null,
-  "email": "mock@email.com",
-  "id": 48008659871,
-  "job_title": null,
-  "language": "en",
-  "mobile": null,
-  "name": "Mock name",
-  "phone": null,
-  "time_zone": "Chennai",
-  "twitter_id": null,
-  "custom_fields": {},
-  "tags": [],
-  "other_emails": [],
-  "facebook_id": null,
-  "created_at": "2019-08-12T07:41:09Z",
-  "updated_at": "2019-08-12T07:41:09Z",
-  "other_companies": [],
-  "unique_external_id": null,
-  "avatar": null
-}
-```
+##### Action Arguments
 
-##### Delete Contact
-```coffee
->>> freshdesk deleteContact id:<ID>
-{
-  "success": true,
-  "message": "Contact deleted successfully."
-}
-```
+| Argument Name | Type     | Required | Default | Description                                                      |
+| :------------ | :------- | :------- | :------ | :--------------------------------------------------------------- |
+| id            | `int`    | `true`   | None    | No description provided.                                         |
+| API_KEY       | `string` | `true`   | None    | A Freshdesk `API_KEY`                                            |
+| DOMAIN        | `string` | `true`   | None    | A Freshdesk account Domain name: https://{DOMAIN}.freshdesk.com/ |
 
-##### Get Contact List
-```coffee
->>> freshdesk listContact
-["LIST_OF_CONTACTS"]
-```
-
-Curious to [learn more](https://docs.storyscript.io/)?
-
-✨🍰✨
-
-## Usage with [OMG CLI](https://www.npmjs.com/package/omg)
-
-##### Get Ticket
 ```shell
-$ omg run getTicket -a id=<ID> -e API_KEY=<API_KEY> -e DOMAIN=<DOMAIN>
+oms run getTicket \
+    -a id='*****' \
+    -e API_KEY=$API_KEY \
+    -e DOMAIN=$DOMAIN
 ```
 
-##### Create Ticket
+##### createTicket
+
+> Create new ticket
+
+##### Action Arguments
+
+| Argument Name | Type     | Required | Default | Description                                                      |
+| :------------ | :------- | :------- | :------ | :--------------------------------------------------------------- |
+| description   | `string` | `true`   | None    | No description provided.                                         |
+| subject       | `string` | `true`   | None    | No description provided.                                         |
+| email         | `string` | `true`   | None    | No description provided.                                         |
+| priority      | `int`    | `false`  | None    | No description provided.                                         |
+| status        | `int`    | `false`  | None    | No description provided.                                         |
+| ccEmails      | `list`   | `false`  | None    | No description provided.                                         |
+| API_KEY       | `string` | `true`   | None    | A Freshdesk `API_KEY`                                            |
+| DOMAIN        | `string` | `true`   | None    | A Freshdesk account Domain name: https://{DOMAIN}.freshdesk.com/ |
+
 ```shell
-$ omg run createTicket -a description=<DESCRIPTION> -a subject=<SUBJECT> -a email=<EMAIL> -a priority=<PRIORITY> -a status=<STATUS> -a ccEmails=<CC_EMAILS> -e API_KEY=<API_KEY> -e DOMAIN=<DOMAIN>
+oms run createTicket \
+    -a description='*****' \
+    -a subject='*****' \
+    -a email='*****' \
+    -a priority='*****' \
+    -a status='*****' \
+    -a ccEmails='*****' \
+    -e API_KEY=$API_KEY \
+    -e DOMAIN=$DOMAIN
 ```
 
-##### Delete Ticket
+##### deleteTicket
+
+> Delete ticket by id
+
+##### Action Arguments
+
+| Argument Name | Type     | Required | Default | Description                                                      |
+| :------------ | :------- | :------- | :------ | :--------------------------------------------------------------- |
+| id            | `int`    | `true`   | None    | No description provided.                                         |
+| API_KEY       | `string` | `true`   | None    | A Freshdesk `API_KEY`                                            |
+| DOMAIN        | `string` | `true`   | None    | A Freshdesk account Domain name: https://{DOMAIN}.freshdesk.com/ |
+
 ```shell
-$ omg run deleteTicket -a id=<ID> -e API_KEY=<API_KEY> -e DOMAIN=<DOMAIN>
+oms run deleteTicket \
+    -a id='*****' \
+    -e API_KEY=$API_KEY \
+    -e DOMAIN=$DOMAIN
 ```
 
-##### Get Ticket List
+##### listTicket
+
+> Get all tickets
+
+##### Action Arguments
+
+| Argument Name | Type     | Required | Default | Description                                                      |
+| :------------ | :------- | :------- | :------ | :--------------------------------------------------------------- |
+| API_KEY       | `string` | `true`   | None    | A Freshdesk `API_KEY`                                            |
+| DOMAIN        | `string` | `true`   | None    | A Freshdesk account Domain name: https://{DOMAIN}.freshdesk.com/ |
+
 ```shell
-$ omg run listTicket -e API_KEY=<API_KEY> -e DOMAIN=<DOMAIN>
+oms run listTicket \
+    -e API_KEY=$API_KEY \
+    -e DOMAIN=$DOMAIN
 ```
 
-##### Get Contact
+##### getContact
+
+> Get contact by id
+
+##### Action Arguments
+
+| Argument Name | Type     | Required | Default | Description                                                      |
+| :------------ | :------- | :------- | :------ | :--------------------------------------------------------------- |
+| id            | `int`    | `true`   | None    | No description provided.                                         |
+| API_KEY       | `string` | `true`   | None    | A Freshdesk `API_KEY`                                            |
+| DOMAIN        | `string` | `true`   | None    | A Freshdesk account Domain name: https://{DOMAIN}.freshdesk.com/ |
+
 ```shell
-$ omg run getContact -a id=<ID> -e API_KEY=<API_KEY> -e DOMAIN=<DOMAIN>
+oms run getContact \
+    -a id='*****' \
+    -e API_KEY=$API_KEY \
+    -e DOMAIN=$DOMAIN
 ```
 
-##### Create Contact
+##### createContact
+
+> Create new contact
+
+##### Action Arguments
+
+| Argument Name    | Type     | Required | Default | Description                                                      |
+| :--------------- | :------- | :------- | :------ | :--------------------------------------------------------------- |
+| name             | `string` | `true`   | None    | No description provided.                                         |
+| email            | `string` | `false`  | None    | No description provided.                                         |
+| mobile           | `int`    | `false`  | None    | No description provided.                                         |
+| phone            | `string` | `false`  | None    | No description provided.                                         |
+| twitterId        | `string` | `false`  | None    | No description provided.                                         |
+| uniqueExternalId | `list`   | `false`  | None    | No description provided.                                         |
+| API_KEY          | `string` | `true`   | None    | A Freshdesk `API_KEY`                                            |
+| DOMAIN           | `string` | `true`   | None    | A Freshdesk account Domain name: https://{DOMAIN}.freshdesk.com/ |
+
 ```shell
-$ omg run createContact -a name=<NAME> -a email=<EMAIL> -a mobile=<MOBILE> -a phone=<PHONE> -a twitterId=<TWITTER_ID> -a uniqueExternalId=<UNIQUE_EXTERNAL_ID> -e API_KEY=<API_KEY> -e DOMAIN=<DOMAIN>
+oms run createContact \
+    -a name='*****' \
+    -a email='*****' \
+    -a mobile='*****' \
+    -a phone='*****' \
+    -a twitterId='*****' \
+    -a uniqueExternalId='*****' \
+    -e API_KEY=$API_KEY \
+    -e DOMAIN=$DOMAIN
 ```
 
-##### Delete Contact
+##### deleteContact
+
+> Delete contact by id
+
+##### Action Arguments
+
+| Argument Name | Type     | Required | Default | Description                                                      |
+| :------------ | :------- | :------- | :------ | :--------------------------------------------------------------- |
+| id            | `int`    | `true`   | None    | No description provided.                                         |
+| API_KEY       | `string` | `true`   | None    | A Freshdesk `API_KEY`                                            |
+| DOMAIN        | `string` | `true`   | None    | A Freshdesk account Domain name: https://{DOMAIN}.freshdesk.com/ |
+
 ```shell
-$ omg run deleteContact -a id=<ID> -e API_KEY=<API_KEY> -e DOMAIN=<DOMAIN>
+oms run deleteContact \
+    -a id='*****' \
+    -e API_KEY=$API_KEY \
+    -e DOMAIN=$DOMAIN
 ```
 
-##### Get Contact List
+##### listContact
+
+> Get all contacts
+
+##### Action Arguments
+
+| Argument Name | Type     | Required | Default | Description                                                      |
+| :------------ | :------- | :------- | :------ | :--------------------------------------------------------------- |
+| API_KEY       | `string` | `true`   | None    | A Freshdesk `API_KEY`                                            |
+| DOMAIN        | `string` | `true`   | None    | A Freshdesk account Domain name: https://{DOMAIN}.freshdesk.com/ |
+
 ```shell
-$ omg run listContact -e API_KEY=<API_KEY> -e DOMAIN=<DOMAIN>
+oms run listContact \
+    -e API_KEY=$API_KEY \
+    -e DOMAIN=$DOMAIN
 ```
 
-**Note**: The OMG CLI requires [Docker](https://docs.docker.com/install/) to be installed.
+## Contributing
 
-## License
-[MIT License](https://github.com/omg-services/mailgun/blob/master/LICENSE).
+All suggestions in how to improve the specification and this guide are very welcome. Feel free share your thoughts in the
+Issue tracker, or even better, fork the repository to implement your own ideas and submit a pull request.
 
+[![Edit freshdesk on CodeSandbox](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/github/oms-services/freshdesk)
+
+This project is guided by [Contributor Covenant](https://github.com/oms-services/.github/blob/master/CODE_OF_CONDUCT.md).
+Please read out full [Contribution Guidelines](https://github.com/oms-services/.github/blob/master/CONTRIBUTING.md).
+
+## Additional Resources
+
+- [Install the CLI](https://github.com/microservices/oms) - The OMS CLI helps developers create, test, validate, and build
+  microservices.
+- [Example OMS Services](https://github.com/oms-services) - Examples of OMS-compliant services written in a variety of
+  languages.
+- [Example Language Implementations](https://github.com/microservices) - Find tooling & language implementations in Node,
+  Python, Scala, Java, Clojure.
+- [Storyscript Hub](https://hub.storyscript.io) - A public registry of OMS services.
+- [Community Chat](https://spectrum.chat/open-microservices) - Have ideas? Questions? Join us on Spectrum.
